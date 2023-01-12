@@ -22,6 +22,9 @@ module.exports = {
       maxWidth: {
         screen: '100vw',
       },
+      width: {
+        '4xl': '56rem' /* 896px */,
+      },
     },
   },
   plugins: [],

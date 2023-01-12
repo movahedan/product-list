@@ -1,22 +1,34 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
-import { Layout } from 'libs/ui';
+import { ClientOnly, Layout, Products } from 'libs/ui';
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Art list</title>
+        <title>Movie list</title>
         <meta
           name='description'
-          content='Sample product list page using Next.js, Apollo, and tailwind.'
+          content='Sample movie list page using Next.js, Apollo, and tailwindcss.'
         />
       </Head>
 
-      <Layout>
-        <h1 className='w-full my-6 text-2xl text-center lg:my-16 lg:text-4xl'>
-          Welcome!
-        </h1>
+      <Layout
+        noBackButton
+        title='Welcome!'
+        subtitle={
+          <>
+            This is a client side page,{' '}
+            <Link href='/products'>
+              To visit the server-side page, click here
+            </Link>
+          </>
+        }
+      >
+        <ClientOnly>
+          <Products className='mx-auto' />
+        </ClientOnly>
       </Layout>
     </>
   );
